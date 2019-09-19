@@ -1,0 +1,28 @@
+<div>
+        <mat-card class="allignCenter mat-elevation-z8">
+            <mat-card-header >
+              <div mat-card-avatar class="example-header-image" ></div>
+              <mat-card-title>{{pokemon.name}} </mat-card-title>
+              <mat-card-subtitle>#{{pokemon.game_indices}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content >
+            <img mat-card-image class="pokemonPicture" src="{{pokemon.sprites}}">
+            <mat-list >
+                    <mat-list-item> Details: </mat-list-item>
+                    <mat-list-item> Abilities: {{pokemon.abilities}} </mat-list-item>
+                    <mat-list-item> Base Experience: {{pokemon.base_experience}} </mat-list-item>
+                    <mat-list-item> Height: {{pokemon.height}} </mat-list-item>
+                    <mat-list-item> Held Items: {{pokemon.held_items}} </mat-list-item>
+                    <mat-list-item> Location: {{pokemon.location_area_encounters}} </mat-list-item>
+                    <mat-list-item> Special Move: {{pokemon.moves}} </mat-list-item>
+                    <mat-list-item> Base HP: {{pokemon.stats}} </mat-list-item>
+                    <mat-list-item> Main Type: {{pokemon.types}} </mat-list-item>
+                    <mat-list-item> Weight: {{pokemon.weight}} </mat-list-item>
+            </mat-list>
+            
+           
+            </mat-card-content>
+        </mat-card>
+    
+    
+    </div>

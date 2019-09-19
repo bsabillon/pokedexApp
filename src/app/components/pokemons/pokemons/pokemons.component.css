@@ -3,9 +3,15 @@
     flex-direction: column;
     margin: 1px auto;
     width: 100%;
+    height: 200PX;
   }
   
   .example-header-image {
     background-image: url('https://cdn2.iconfinder.com/data/icons/gaming-color-icons/104/22-gaming-pokemon-pokeball-512.png');
     background-size: cover;
+  }
+
+  .pokemonPicture{
+    height: 200px;
+    width: 100%;
   }
