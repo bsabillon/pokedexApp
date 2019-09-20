@@ -19,9 +19,11 @@
                     <mat-list-item> Main Type: {{pokemon.types}} </mat-list-item>
                     <mat-list-item> Weight: {{pokemon.weight}} </mat-list-item>
             </mat-list>
-            
-           
             </mat-card-content>
+            <mat-card-actions>
+                <button (click)="deletePokemon(pokemon.id)" mat-button>DELETE</button>
+                <button padding [routerLink]="[ '/updatePokemon', pokemon.id]"  mat-button>UPDATE</button>
+              </mat-card-actions>
         </mat-card>
     
     

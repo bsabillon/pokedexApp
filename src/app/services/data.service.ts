@@ -22,5 +22,16 @@ export class DataService {
     return this.http.get(`${this.endpoint}/pokemons/byId/${id}`);
   }
 
-  
+  postPokemon(pokemon: pokemon) {
+    return this.http.post(`${this.endpoint}/pokemons/add`,pokemon, {responseType: 'text'});
+  }
+
+  deletePokemon(id: number) {
+    return this.http.delete(`${this.endpoint}/pokemons/delete/${id}`, {responseType: 'text'});
+  }
+
+  updatePokemon(id: number){
+    return this.http.put(`${this.endpoint}/pokemons/update/${id}`, {responseType: 'text'});
+  }
+
 }

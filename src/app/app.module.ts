@@ -19,6 +19,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UpdatePokemonComponent } from './components/pokemons/update-pokemon/update-pokemon.component';
+
 
 @NgModule({
   declarations: [
@@ -26,16 +30,17 @@ import {MatListModule} from '@angular/material/list';
     HomeComponent,
     ToolbarComponent,
     AddPokemonComponent,
+    UpdatePokemonComponent,
     PokemonDetailsComponent,
     PokemonsComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,FormsModule, 
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,MatCardModule,MatFormFieldModule,MatIconModule,
-    MatInputModule,MatButtonModule,MatListModule
+    MatInputModule,MatButtonModule,MatListModule,MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { pokemon } from './../../../models/pokemon';
 import { DataService } from '../../../services/data.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -27,28 +28,39 @@ export class PokemonDetailsComponent implements OnInit {
   public stats: number;
   public types: string;
   public weight: number;
+  message : string;
 
-  constructor(private route: ActivatedRoute, public router: Router, public dataService: DataService) {
+  constructor(private route: ActivatedRoute, 
+              public router: Router, 
+              public dataService: DataService,
+              private _snackBar: MatSnackBar              
+              ){
 
     this.pokemonId = this.route.snapshot.params.id;
    }
 
+  openSnackBar(){
+    this._snackBar.open('Pokemon deleted successfully!','',{duration: 2000})
+  }
+   
   ngOnInit() {
     this.getPokemonDetail();
-    console.log(this.pokemon);
   }
+
 
   getPokemonDetail() {
     this.dataService.getPokemonbyId(this.pokemonId).subscribe((pokemon: pokemon) => {
       this.pokemon = pokemon;
-      // this.abilities = pokemon.abilities;
-      // this.name = pokemon.name;
-      // this.base_experience=pokemon.base_experience;
-      // this.forms=pokemon.forms;
-
-
     });
   }
 
+  deletePokemon(){
+    this.dataService.deletePokemon(this.pokemonId).subscribe((data)=>{
+      this.openSnackBar();
+      this.router.navigate(['/pokemons']);
+    })
+  }
+
+  
 
 }
