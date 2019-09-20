@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { pokemon } from './../../../models/pokemon';
 import { DataService } from '../../../services/data.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-pokemon',
@@ -27,7 +28,11 @@ export class AddPokemonComponent implements OnInit {
   types: string;
   weight: number;
 
-  constructor(public router: Router, public dataService: DataService) { }
+  constructor(public router: Router, public dataService: DataService,private _snackBar: MatSnackBar) { }
+
+  openSnackBar(){
+    this._snackBar.open('Pokemon added successfully!','',{duration: 4000})
+  }
 
   ngOnInit() {
   }
@@ -56,6 +61,8 @@ export class AddPokemonComponent implements OnInit {
 
     this.dataService.postPokemon(pokemon).subscribe((data)=>{
       this.dataService.pokemon=pokemon;
+      this.router.navigate(['/pokemons']);
+      this.openSnackBar();
     })
 
   }

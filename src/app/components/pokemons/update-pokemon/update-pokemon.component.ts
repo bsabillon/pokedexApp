@@ -40,7 +40,7 @@ export class UpdatePokemonComponent implements OnInit {
 
 
   openSnackBar(){
-      this._snackBar.open('Pokemon updated successfully!','',{duration: 2000})
+      this._snackBar.open('Pokemon updated successfully!','',{duration: 4000})
     }
 
   ngOnInit() {
@@ -68,7 +68,6 @@ export class UpdatePokemonComponent implements OnInit {
       this.stats=pokemon.stats;
       this.types=pokemon.types;
       this.weight=pokemon.weight;
-      //console.log("this is update " + pokemon.name);
     });
   }
 
@@ -94,8 +93,10 @@ export class UpdatePokemonComponent implements OnInit {
       weight: this.weight,
     }
 
-    this.dataService.updatePokemon(this.pokemonId).subscribe((data)=>{
+    this.dataService.updatePokemon(this.pokemonId, pokemon).subscribe((data)=>{
       this.dataService.pokemon=pokemon;
+      this.router.navigate(['/pokemons']);
+      this.openSnackBar();
     })
 
   }

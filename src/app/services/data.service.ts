@@ -30,8 +30,8 @@ export class DataService {
     return this.http.delete(`${this.endpoint}/pokemons/delete/${id}`, {responseType: 'text'});
   }
 
-  updatePokemon(id: number){
-    return this.http.put(`${this.endpoint}/pokemons/update/${id}`, {responseType: 'text'});
+  updatePokemon(id: number,pokemon: pokemon ){
+    return this.http.put(`${this.endpoint}/pokemons/update/${id}`,pokemon, {responseType: 'text'});
   }
 
 }
